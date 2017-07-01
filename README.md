@@ -1,16 +1,7 @@
-		
 
-**CMPE 483 BLOCKCHAIN PROGRAMMING**
+**DAO INSURANCEVO**
 
-**PROJECT 2**
 
-**REPORT OF INSURANCEVO**
-
-**Emirhan Karagül - 2013400057**
-
-**Mehmet Doğan - 2012400189**
-
-**Kayahan Taşyaran - 2012400174**
 
 **1. INTRODUCTION**
 
