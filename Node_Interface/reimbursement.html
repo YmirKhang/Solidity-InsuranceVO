@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Browser Transactions</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-theme.css">
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"-->
+    <!-- Our own CSS file -->
+    <!-- changes -->
+    <!-- changes end -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="bmyweb3.js"></script>
+  <script src="jQuery3.2.1.js"></script>
+
+  <script type="text/javascript">
+
+
+function funvoteProp(pid,choice){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  voteProp(fromAdress,pid,password,choice);
+}
+
+function reimFunc(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  reimburseMeFunc(fromAdress,password);
+}
+
+
+function reimDepFunc(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  reimburseDepositF(fromAdress,password);
+}
+function reimPreFunc(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  
+  reimbursePremiumFunc(fromAdress, password);
+}
+
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Insurance VO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
+</nav>
+
+ 
+
+<div class=”container-fluid”>
+<div class="form-group" style="margin: 0px 10px" >
+  <label for="usr">Address:</label>
+  <input type="text" id= "fromAdress" class="form-control" >
+</div>
+<div class="form-group" style="margin: 10px 10px">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id= "pass">
+</div>
+</div>
+
+
+<div class="container-fluid">
+<button onclick="reimFunc()" class="btn bigButton" > Reimburse balances</button>
+ 
+ 
+<button onclick="reimPreFunc()" class="btn bigButton" > Reimburse premium </button>
+ 
+ 
+<button onclick="reimDepFunc()" class="btn bigButton" > Reimburse deposit </button>
+ 
+</div>
+
+ 
+ 
+ 
+ 
+
+
+<p id="status"></p>
+
+</body>
+</html>

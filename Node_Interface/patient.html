@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Browser Transactions</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-theme.css">
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"-->
+    <!-- Our own CSS file -->
+    <!-- changes -->
+    <!-- changes end -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="bmyweb3.js"></script>
+  <script src="jQuery3.2.1.js"></script>
+
+  <script type="text/javascript">
+
+$(document).ready(function(){
+
+    var endDate = proposalListF();
+
+    $.each(endDate, function(){
+    var tr="<tr><td>" + this[0] + "</td><td>" + this[1].toNumber() + "</td><td>" + this[2].toNumber() + "</td><td>" + this[3].toNumber()/1000000000000000000 + "</td><td>" + new Date(this[4].toNumber()*1000)+ "</td><td>" + this[5].toNumber() + "</td><td><button class=\"btn\" onclick=\"funvoteProp("+ this[2].toNumber() +" , " + true + ")\"> Yes </button></td><td> <button class=\"btn\" onclick=\"funvoteProp("+ this[2].toNumber() +" , " + false +   ")\" > No </button></td></tr>";
+    $("#tblProposals").append(tr);
+    console.log(this[0]);
+    console.log(this[1].toNumber());
+    console.log(this[2].toNumber());
+    console.log(this[3].toNumber() /1000000000000000000);
+    console.log(new Date(this[4].toNumber()*1000));
+    console.log(this[5].toNumber());
+    console.log($.parseJSON(this[6]));
+
+  });
+    
+ 
+ })
+
+function funvoteProp(pid,choice){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  voteProp(fromAdress,pid,password,choice);
+}
+
+function callPrem(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  var x = premiumFunc(fromAdress,password);
+  console.log(x);
+}
+function callTrans(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  var toAdress = $("#toAdress").val();
+  var x = transferFunc(fromAdress,toAdress,password);
+  console.log(x);
+  }
+function callPayment(){
+   var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  var tID = $("#treatID").val();
+  approvePayFunc(fromAdress, password, tID);
+}
+
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Insurance VO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
+</nav>
+
+ 
+
+<div class=”container-fluid”>
+<div class="form-group" style="margin: 0px 10px" >
+  <label for="usr">Address:</label>
+  <input type="text" id= "fromAdress" class="form-control" >
+</div>
+<div class="form-group" style="margin: 10px 10px">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id= "pass">
+</div>
+</div>
+
+
+ 
+<div class="container-fluid">
+  <div id="divVoteTransfer" class="col-md-6 weird">
+    <h2   style="margin-left:220px" >Transfer your vote right </h2>
+   <input type="text" id= "toAdress" class="btn bigButton centerButton" placeholder="Account to transfer the vote" >
+   <button  class="centerButton btn bigButton"  onclick="callTrans()"> Transfer </button>
+  </div>
+  <div id="divPayPremium" class="col-md-6 weird" >
+  <h2   style="margin-left:220px" >Pay for Premium Cost: 20 Ether </h2>
+    <button  class="centerButton btn bigButton"  onclick="callPrem()"> Buy Premium </button>
+  </div>
+</div>
+ 
+<div class="container-fluid">
+  <div id="divApprovePayment" class="col-md-12 weird">
+    <h2   style="margin-left: 42%" >Approve Your Payment </h2>
+   <input type="text" id= "treatID" class="btn bigButton centerButton" placeholder="Treatment id" >
+   <button  class="centerButton btn bigButton"  onclick="callPayment()"> Approve </button>
+  </div>
+</div>
+ 
+ 
+<div class="container-fluid">
+  <div id="divListProposal" class="col-md-12 weird">
+  <table id="tblProposals" class="table" >
+  <tr>
+<th>Link of Description</th>
+<th>Vote Count</th>
+<th>Proposal ID</th>
+<th>Amount Of Service</th>
+<th>Voting End Date</th>
+<th>Count of Yes Votes</th>
+<th>Vote Yes</th>
+<th>Vote No</th>
+</tr>
+  </table>
+ 
+</div></div>
+ 
+ 
+ 
+ 
+
+
+<p id="status"></p>
+
+</body>
+</html>

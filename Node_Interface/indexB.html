@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Browser Transactions</title>
+  <script src="bsigntx.js"></script>
+  <script>
+    function generateSignedTx() {
+        var pk     = document.getElementById("privatekey").value ; 
+        var toaddr = document.getElementById("toaddr").value ; 
+        var amnt   = document.getElementById("amount").value ; 
+        
+        var prms = mygetnoncegas(pk) ; 
+        var sertx = mysendpayment(pk,toaddr,amnt,prms.nonce,prms.gasprice,prms.gaslimit) ;
+        // document.getElementById("addr").innerHTML = "Address:" + mygetaddr(pk) ;
+        document.getElementById("signedtx").innerHTML = "SignedTx:" + sertx ;
+    }
+  </script>
+</head>
+<body>
+
+<h1>Browser Transactions</h1>
+
+<form>
+<p> PrivKy: <textarea id="privatekey" rows="1" cols="100"></textarea> </p>
+<p> ToAddr: <textarea id="toaddr" rows="1" cols="100"></textarea> </p>
+<p> Amount: <textarea id="amount" rows="1" cols="100"></textarea> </p>
+</form>
+
+<p>When you click "Generate", signed transaction will be generated.</p>
+
+<button onclick="generateSignedTx()">Generate Signed Transaction</button>
+
+<p id="addr"></p>
+
+<p id="signedtx"></p>
+
+
+</body>
+</html>

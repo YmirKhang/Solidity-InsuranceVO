@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Browser Transactions</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-theme.css">
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"-->
+    <!-- Our own CSS file -->
+    <!-- changes -->
+    <!-- changes end -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="bmyweb3.js"></script>
+  <script src="jQuery3.2.1.js"></script>
+
+  <script type="text/javascript">
+
+
+function funvoteProp(pid,choice){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  voteProp(fromAdress,pid,password,choice);
+}
+
+function requestPay(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  var des = $("#desc").val();
+  var cos = $("#cost").val();
+  var pAd = $("#patient").val();
+  var x = requestPayFunc(fromAdress,password,des,cos,pAd);
+  console.log(x);
+}
+
+function sendProposal(){
+  var lnk = $("#link").val();
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  var amount = $("#amntService").val();
+  proposeFunc(lnk,fromAdress,password,amount) ;
+
+}
+
+function callReq(){
+  var fromAdress = $("#fromAdress").val() ;
+  var password = $("#pass").val();
+  requestHostServe(fromAdress,password);
+}
+
+
+
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Insurance VO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
+</nav>
+
+ 
+
+<div class=”container-fluid”>
+<div class="form-group" style="margin: 0px 10px" >
+  <label for="usr">Address:</label>
+  <input type="text" id= "fromAdress" class="form-control" >
+</div>
+<div class="form-group" style="margin: 10px 10px">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id= "pass">
+</div>
+</div>
+
+
+ 
+<div class="container-fluid">
+  <div id="divVoteTransfer" class="col-md-6 weird">
+    <h2   style="margin-left:30%" >Request Pay for Treatment </h2>
+   <input type="text" id= "desc" class="btn bigButton centerButton" placeholder="Description Link of the payment" >
+   <input type="text" id= "cost" class="btn bigButton centerButton" placeholder="Cost of the Payment in Ethers" >
+   <input type="text" id= "patient" class="btn bigButton centerButton" placeholder="Adress of the patient" >
+   <button  class="centerButton btn bigButton"  onclick="requestPay()"> Send Payment Request </button>
+  </div>
+  <div id="divPayPremium" class="col-md-6 weird" >
+  <h2   style="margin-left:38%" >Request Serve </h2>
+    <button  class="centerButton btn bigButton"  onclick="callReq()"> Request Serve </button>
+  </div>
+</div>
+ 
+<div class="container-fluid">
+  <div class="form-group">
+  <label for="link">Link</label>
+  <input type="text" class="form-control" id="link">
+</div>
+<div class="form-group">
+  <label for="amntService">Amount Of Service</label>
+  <input type="text" class="form-control" id="amntService">
+</div>
+<button class="btn centerButton bigButton" onclick="sendProposal()"> Propose! </button>  
+    
+
+</div>
+ 
+ 
+ 
+ 
+
+
+<p id="status"></p>
+
+</body>
+</html>

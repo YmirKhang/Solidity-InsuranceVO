@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Browser Transactions</title>
+  <script src="bmyweb3.js"></script>
+  <script>
+    function callcontract() {
+        var fromaddr = document.getElementById("fromaddr").value ; 
+        var pwd      = document.getElementById("password").value ; 
+        var argno    = document.getElementById("argument").value ; 
+        var amnt     = document.getElementById("amount").value ; 
+        
+        var stat = mycallcontract(fromaddr,pwd,argno,amnt,900000) ;
+        document.getElementById("status").innerHTML = "Contract called: Tx no:" + stat ;
+    }
+  </script>
+</head>
+<body>
+
+<h1>Browser Transactions</h1>
+
+<form>
+<p> FrAddr: <textarea id="fromaddr" rows="1" cols="100"></textarea> </p>
+<p> Passwd: <input type="password" id="password" rows="1" cols="100"></input> </p>
+<p> Argumn: <textarea id="argument" rows="1" cols="100"></textarea> </p>
+<p> Amount: <textarea id="amount"   rows="1" cols="100"></textarea> </p>
+</form>
+
+<p>When you click "Call", the contract will be called.</p>
+
+<button onclick="callcontract()">Call Contract</button>
+
+<p id="status"></p>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+.bigButton{
+  padding: 10px;
+  width: 60%;
+  height: 40px;
+  margin:10px;
+  margin-left:20%;
+  font-weight: 800;
+}
+
+table, th, td{
+	border: 1px solid black;
+}
+
+.centerButton{
+	display:block;
+	margin:0 auto;
+}
+
+.weird{
+	border:3px groove #aaa;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	padding: 15px;
+}
